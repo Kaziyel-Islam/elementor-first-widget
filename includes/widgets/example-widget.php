@@ -152,7 +152,7 @@ class Example_Widget extends Widget_Base {
 
         $this->end_controls_section();
 
-        
+
 
         // Style Section
         $this->start_controls_section(
@@ -182,22 +182,7 @@ class Example_Widget extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'image_size',
-            [
-                'label' => __( 'Image Width', 'eleo-addon' ),
-                'type' => \Elementor\Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 50,
-                        'max' => 500,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .my-image' => 'width: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
+        
 
         $this->add_control(
             'icon_size',
@@ -237,6 +222,209 @@ class Example_Widget extends Widget_Base {
 
         $this->end_controls_section();
 
+
+
+        // Style Section
+        $this->start_controls_section(
+            'img_style_section',
+            [
+                'label' => __( 'Image', 'myew' ),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        // Alignment Control
+        $this->add_responsive_control(
+            'image_align',
+            [
+                'label' => __( 'Alignment', 'myew' ),
+                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'options' => [
+                    'left' => [
+                        'title' => __( 'Left', 'myew' ),
+                        'icon' => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => __( 'Center', 'myew' ),
+                        'icon' => 'eicon-text-align-center',
+                    ],
+                    'right' => [
+                        'title' => __( 'Right', 'myew' ),
+                        'icon' => 'eicon-text-align-right',
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .my-image-wrap' => 'text-align: {{VALUE}};',
+                ],
+                'default' => 'center',
+            ]
+        );
+
+        // Width
+        $this->add_responsive_control(
+            'image_width',
+            [
+                'label' => __( 'Width', 'myew' ),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%', 'em', 'rem', 'vw' ],
+                'selectors' => [
+                    '{{WRAPPER}} .my-image' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        // Max Width
+        $this->add_responsive_control(
+            'image_max_width',
+            [
+                'label' => __( 'Max Width', 'myew' ),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%', 'em', 'rem', 'vw' ],
+                'selectors' => [
+                    '{{WRAPPER}} .my-image' => 'max-width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        // Height
+        $this->add_responsive_control(
+            'image_height',
+            [
+                'label' => __( 'Height', 'myew' ),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => [ 'px', 'em', 'rem', 'vh' ],
+                'selectors' => [
+                    '{{WRAPPER}} .my-image' => 'height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        // Object Fit
+        $this->add_control(
+            'object_fit',
+            [
+                'label' => __( 'Object Fit', 'myew' ),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    '' => __( 'Default', 'myew' ),
+                    'fill' => __( 'Fill', 'myew' ),
+                    'cover' => __( 'Cover', 'myew' ),
+                    'contain' => __( 'Contain', 'myew' ),
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .my-image' => 'object-fit: {{VALUE}};',
+                ],
+                'condition' => [
+                    'image_height[size]!' => '',
+                ],
+            ]
+        );
+
+        /// --- START TABS --- ///
+        $this->start_controls_tabs( 'img_style_tabs' );
+
+        // NORMAL TAB
+        $this->start_controls_tab(
+            'image_style_normal_tab',
+            [ 'label' => __( 'Normal', 'myew' ) ]
+        );
+
+        // Border
+        $this->add_group_control(
+            \Elementor\Group_Control_Border::get_type(),
+            [
+                'name' => 'image_border',
+                'selector' => '{{WRAPPER}} .my-image',
+            ]
+        );
+
+        // Border Radius
+        $this->add_responsive_control(
+            'image_border_radius',
+            [
+                'label' => __( 'Border Radius', 'myew' ),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'selectors' => [
+                    '{{WRAPPER}} .my-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        // Box Shadow
+        $this->add_group_control(
+            \Elementor\Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'image_box_shadow',
+                'selector' => '{{WRAPPER}} .my-image',
+            ]
+        );
+
+        // Opacity
+        $this->add_control(
+            'image_opacity',
+            [
+                'label' => __( 'Opacity', 'myew' ),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'selectors' => [
+                    '{{WRAPPER}} .my-image' => 'opacity: {{SIZE}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_tab();
+
+
+        // HOVER TAB
+        $this->start_controls_tab(
+            'image_style_hover_tab',
+            [ 'label' => __( 'Hover', 'myew' ) ]
+        );
+
+        // Hover Border
+        $this->add_group_control(
+            \Elementor\Group_Control_Border::get_type(),
+            [
+                'name' => 'image_border_hover',
+                'selector' => '{{WRAPPER}} .my-image:hover',
+            ]
+        );
+
+        // Hover Shadow
+        $this->add_group_control(
+            \Elementor\Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'image_hover_box_shadow',
+                'selector' => '{{WRAPPER}} .my-image:hover',
+            ]
+        );
+
+        // Hover Opacity
+        $this->add_control(
+            'image_hover_opacity',
+            [
+                'label' => __( 'Opacity', 'myew' ),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'selectors' => [
+                    '{{WRAPPER}} .my-image:hover' => 'opacity: {{SIZE}};',
+                ],
+            ]
+        );
+
+        // Hover Animation
+        $this->add_control(
+            'image_hover_animation',
+            [
+                'label' => __( 'Hover Animation', 'myew' ),
+                'type' => \Elementor\Controls_Manager::HOVER_ANIMATION,
+            ]
+        );
+
+        $this->end_controls_tab();
+        $this->end_controls_tabs(); // END Tabs
+
+        $this->end_controls_section();
+
+
  }
 
     protected function render() {
@@ -250,7 +438,11 @@ class Example_Widget extends Widget_Base {
         echo '<div style="text-align:' . esc_attr( $settings['alignment'] ) . ';">';
 
          if ( ! empty( $settings['image']['url'] ) ) {
-        echo '<img class="my-image" src="' . esc_url( $settings['image']['url'] ) . '" alt="Image">';
+            echo '<div class="my-image-wrap">';
+
+            echo '<img class="my-image" src="' . esc_url( $settings['image']['url'] ) . '" alt="Image">';
+
+            echo '</div>';
         }
 
         echo sprintf( '<%1$s class="my-title">%2$s</%1$s>', esc_attr( $tag ), esc_html( $settings['title'] ) );
