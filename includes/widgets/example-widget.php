@@ -228,7 +228,7 @@ class Example_Widget extends Widget_Base {
         $this->start_controls_section(
             'img_style_section',
             [
-                'label' => __( 'Image', 'myew' ),
+                'label' => __( 'Image', 'eleo-addon' ),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -237,19 +237,19 @@ class Example_Widget extends Widget_Base {
         $this->add_responsive_control(
             'image_align',
             [
-                'label' => __( 'Alignment', 'myew' ),
+                'label' => __( 'Alignment', 'eleo-addon' ),
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => __( 'Left', 'myew' ),
+                        'title' => __( 'Left', 'eleo-addon' ),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => __( 'Center', 'myew' ),
+                        'title' => __( 'Center', 'eleo-addon' ),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => __( 'Right', 'myew' ),
+                        'title' => __( 'Right', 'eleo-addon' ),
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
@@ -264,7 +264,7 @@ class Example_Widget extends Widget_Base {
         $this->add_responsive_control(
             'image_width',
             [
-                'label' => __( 'Width', 'myew' ),
+                'label' => __( 'Width', 'eleo-addon' ),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%', 'em', 'rem', 'vw' ],
                 'selectors' => [
@@ -277,7 +277,7 @@ class Example_Widget extends Widget_Base {
         $this->add_responsive_control(
             'image_max_width',
             [
-                'label' => __( 'Max Width', 'myew' ),
+                'label' => __( 'Max Width', 'eleo-addon' ),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%', 'em', 'rem', 'vw' ],
                 'selectors' => [
@@ -290,7 +290,7 @@ class Example_Widget extends Widget_Base {
         $this->add_responsive_control(
             'image_height',
             [
-                'label' => __( 'Height', 'myew' ),
+                'label' => __( 'Height', 'eleo-addon' ),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px', 'em', 'rem', 'vh' ],
                 'selectors' => [
@@ -303,13 +303,13 @@ class Example_Widget extends Widget_Base {
         $this->add_control(
             'object_fit',
             [
-                'label' => __( 'Object Fit', 'myew' ),
+                'label' => __( 'Object Fit', 'eleo-addon' ),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
-                    '' => __( 'Default', 'myew' ),
-                    'fill' => __( 'Fill', 'myew' ),
-                    'cover' => __( 'Cover', 'myew' ),
-                    'contain' => __( 'Contain', 'myew' ),
+                    '' => __( 'Default', 'eleo-addon' ),
+                    'fill' => __( 'Fill', 'eleo-addon' ),
+                    'cover' => __( 'Cover', 'eleo-addon' ),
+                    'contain' => __( 'Contain', 'eleo-addon' ),
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .my-image' => 'object-fit: {{VALUE}};',
@@ -326,7 +326,7 @@ class Example_Widget extends Widget_Base {
         // NORMAL TAB
         $this->start_controls_tab(
             'image_style_normal_tab',
-            [ 'label' => __( 'Normal', 'myew' ) ]
+            [ 'label' => __( 'Normal', 'eleo-addon' ) ]
         );
 
         // Border
@@ -342,7 +342,7 @@ class Example_Widget extends Widget_Base {
         $this->add_responsive_control(
             'image_border_radius',
             [
-                'label' => __( 'Border Radius', 'myew' ),
+                'label' => __( 'Border Radius', 'eleo-addon' ),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'selectors' => [
                     '{{WRAPPER}} .my-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -363,7 +363,7 @@ class Example_Widget extends Widget_Base {
         $this->add_control(
             'image_opacity',
             [
-                'label' => __( 'Opacity', 'myew' ),
+                'label' => __( 'Opacity', 'eleo-addon' ),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'selectors' => [
                     '{{WRAPPER}} .my-image' => 'opacity: {{SIZE}};',
@@ -377,7 +377,7 @@ class Example_Widget extends Widget_Base {
         // HOVER TAB
         $this->start_controls_tab(
             'image_style_hover_tab',
-            [ 'label' => __( 'Hover', 'myew' ) ]
+            [ 'label' => __( 'Hover', 'eleo-addon' ) ]
         );
 
         // Hover Border
@@ -402,7 +402,7 @@ class Example_Widget extends Widget_Base {
         $this->add_control(
             'image_hover_opacity',
             [
-                'label' => __( 'Opacity', 'myew' ),
+                'label' => __( 'Opacity', 'eleo-addon' ),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'selectors' => [
                     '{{WRAPPER}} .my-image:hover' => 'opacity: {{SIZE}};',
@@ -414,7 +414,7 @@ class Example_Widget extends Widget_Base {
         $this->add_control(
             'image_hover_animation',
             [
-                'label' => __( 'Hover Animation', 'myew' ),
+                'label' => __( 'Hover Animation', 'eleo-addon' ),
                 'type' => \Elementor\Controls_Manager::HOVER_ANIMATION,
             ]
         );
@@ -463,3 +463,6 @@ class Example_Widget extends Widget_Base {
 
             }
 }
+
+
+
